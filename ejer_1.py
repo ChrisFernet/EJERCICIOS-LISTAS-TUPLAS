@@ -29,6 +29,8 @@ def agregar_prod(lista):
     producto = input("Escriba el producto que desea agregar: ")
     lista.append(producto) 
     print(f"Lista actual: {lista}")
+    
+    return lista
 
 def agregar_lote(lista):
     productos = input("Escriba el lote de productos que desee agregar separados por comas: ")
@@ -36,6 +38,20 @@ def agregar_lote(lista):
     lista_productos = productos.split(",")
     lista.extend(lista_productos) 
     print(f"Lista actual: {lista}")
+
+    return lista
+
+def eliminar_prod(lista):
+    producto = input("Escribe el producto que desea borrar: ")
+    producto.strip()  
+    producto.split(",")
+    
+    if lista.remove(producto) is None:
+         
+
+    print(f"Lista actual: {lista}")
+
+    return lista
 
 def main():
     productos_lista = []
@@ -49,7 +65,7 @@ def main():
         elif opcion ==2:
             productos_lista = agregar_lote(productos_lista) 
         elif opcion ==3:
-            pass
+            productos_lista = eliminar_prod(productos_lista)
         elif opcion ==4:
             pass
         elif opcion ==5:
