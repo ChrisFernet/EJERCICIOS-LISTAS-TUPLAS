@@ -2,7 +2,7 @@
 
 def menu():
     print("=" * 40)
-    print("Inventarios tienda CAMPUS")
+    print("      Inventarios tienda CAMPUS      ")
     print("="*40)
     print("1. Agregar producto")
     print("2. Agregar lote de productos")
@@ -25,21 +25,29 @@ def leer_opcion():
 
     return int(op)
 
-def agregar_prod():
+def agregar_prod(lista):
     producto = input("Escriba el producto que desea agregar: ")
+    lista.append(producto) 
+    print(f"Lista actual: {lista}")
 
-    return producto.append
+def agregar_lote(lista):
+    productos = input("Escriba el lote de productos que desee agregar separados por comas: ")
+    lista_productos = productos.strip()  
+    lista_productos = productos.split(",")
+    lista.extend(lista_productos) 
+    print(f"Lista actual: {lista}")
 
 def main():
-    productos = []
-    menu()
+    productos_lista = []
+    opcion = 0
     while ((opcion!=7)):
-
+        menu()
         opcion=leer_opcion()
+
         if opcion ==1:
-            productos=agregar_prod(productos)
+            productos_lista = agregar_prod(productos_lista)
         elif opcion ==2:
-            pass
+            productos_lista = agregar_lote(productos_lista) 
         elif opcion ==3:
             pass
         elif opcion ==4:
