@@ -12,7 +12,7 @@ def menu():
     print("6. Mostrar número total de productos")
     print("7. Salir")
     print("=" * 40)
-    print("Seleccione una opción (1 - 7): ")
+    print("\nSeleccione una opción (1 - 7): ")
 
 def leer_opcion():
     op=input()
@@ -26,9 +26,15 @@ def leer_opcion():
     return int(op)
 
 def agregar_prod(lista):
-    producto = input("Escriba el producto que desea agregar: ")
-    lista.append(producto) 
-    print(f"Lista actual: {lista}")
+    productos = input("Escriba el producto que desee agregar: ")
+    producto = productos.strip()
+    if producto != "":
+        lista_productos = productos.strip()   
+        lista.append(lista_productos) 
+        print(f"Lista actual: {lista}")
+    else: 
+        print("Producto inválido. Presione cualquier tecla para continuar.")
+    return lista
 
 def agregar_lote(lista):
     productos = input("Escriba el lote de productos que desee agregar separados por comas: ")
@@ -36,6 +42,15 @@ def agregar_lote(lista):
     lista_productos = productos.split(",")
     lista.extend(lista_productos) 
     print(f"Lista actual: {lista}")
+
+    return lista
+
+def eliminar_prod(lista):
+    prod = input("Escriba el producto que desee eliminar: ")
+    producto = prod.strip()   
+    lista.remove(producto) 
+    print(f"Lista actual: {lista}")
+    return lista
 
 def main():
     productos_lista = []
@@ -49,7 +64,7 @@ def main():
         elif opcion ==2:
             productos_lista = agregar_lote(productos_lista) 
         elif opcion ==3:
-            pass
+            eliminar_prod(productos_lista)
         elif opcion ==4:
             pass
         elif opcion ==5:

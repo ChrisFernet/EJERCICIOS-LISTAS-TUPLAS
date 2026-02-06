@@ -1,0 +1,114 @@
+def matriz_secuencial(n):
+    num = 1
+    for i in range(n):
+        for j in range(n):
+            print(num, end="\t")
+            num += 1
+        print()
+
+def matriz_zigzag(n):
+    for i in range(n):
+        if i % 2 == 0:
+            for j in range(1, n+1):
+                print(j, end="\t")
+        else:
+            for j in range(n, 0, -1):
+                print(j, end="\t")
+        print()
+
+def matriz_diagonal(n):
+    for i in range(n):
+        for j in range(n):
+            if i == j:
+                print(1, end="\t")
+            else:
+                print(0, end="\t")
+        print()
+
+def matriz_diagonal_inversa(n):
+    for i in range(n):
+        for j in range(n):
+            if i + j == n - 1:
+                print(1, end="\t")
+            else:
+                print(0, end="\t")
+        print()
+
+def matriz_triangular_inferior(n):
+    for i in range(n):
+        for j in range(n):
+            if i >= j:
+                print(1, end="\t")
+            else:
+                print(0, end="\t")
+        print()
+
+def matriz_triangular_superior(n):
+    for i in range(n):
+        for j in range(n):
+            if i <= j:
+                print(1, end="\t")
+            else:
+                print(0, end="\t")
+        print()
+
+def matriz_por_columnas(n):
+    mat = [[0]*n for _ in range(n)]
+    num = 1
+    for j in range(n):
+        for i in range(n):
+            mat[i][j] = num
+            num += 1
+
+    for fila in mat:
+        print(*fila)
+
+def matriz_ab(n):
+    for i in range(n):
+        for j in range(n):
+            if (i + j) % 2 == 0:
+                print("A", end="\t")
+            else:
+                print("B", end="\t")
+        print()
+
+def menu():
+    while True:
+        print("\n===== MENU MATRICES =====")
+        print("1. Matriz secuencial")
+        print("2. Matriz zig-zag")
+        print("3. Diagonal principal")
+        print("4. Diagonal inversa")
+        print("5. Triangular inferior")
+        print("6. Triangular superior")
+        print("7. Llenado por columnas")
+        print("8. Patrón A / B")
+        print("9. Salir")
+
+        op = int(input("Elija una opción: "))
+        if op == 9:
+            print("Saliendo...")
+            break
+
+        n = int(input("Ingrese tamaño de la matriz (NxN): "))
+        print()
+
+        if op == 1:
+            matriz_secuencial(n)
+        elif op == 2:
+            matriz_zigzag(n)
+        elif op == 3:
+            matriz_diagonal(n)
+        elif op == 4:
+            matriz_diagonal_inversa(n)
+        elif op == 5:
+            matriz_triangular_inferior(n)
+        elif op == 6:
+            matriz_triangular_superior(n)
+        elif op == 7:
+            matriz_por_columnas(n)
+        elif op == 8:
+            matriz_ab(n)
+        else:
+            print("Opción incorrecta")
+menu()
